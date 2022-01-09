@@ -199,6 +199,168 @@ class rust_panic {
           '_GetLocaleForCP');
   late final __GetLocaleForCP =
       __GetLocaleForCPPtr.asFunction<_locale_t Function(int)>();
+
+  void __va_start(
+    ffi.Pointer<va_list> arg0,
+  ) {
+    return ___va_start(
+      arg0,
+    );
+  }
+
+  late final ___va_startPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<va_list>)>>(
+          '__va_start');
+  late final ___va_start =
+      ___va_startPtr.asFunction<void Function(ffi.Pointer<va_list>)>();
+
+  void __security_init_cookie() {
+    return ___security_init_cookie();
+  }
+
+  late final ___security_init_cookiePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+          '__security_init_cookie');
+  late final ___security_init_cookie =
+      ___security_init_cookiePtr.asFunction<void Function()>();
+
+  void __security_check_cookie(
+    int _StackCookie,
+  ) {
+    return ___security_check_cookie(
+      _StackCookie,
+    );
+  }
+
+  late final ___security_check_cookiePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(uintptr_t)>>(
+          '__security_check_cookie');
+  late final ___security_check_cookie =
+      ___security_check_cookiePtr.asFunction<void Function(int)>();
+
+  void __report_gsfailure(
+    int _StackCookie,
+  ) {
+    return ___report_gsfailure(
+      _StackCookie,
+    );
+  }
+
+  late final ___report_gsfailurePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(uintptr_t)>>(
+          '__report_gsfailure');
+  late final ___report_gsfailure =
+      ___report_gsfailurePtr.asFunction<void Function(int)>();
+
+  late final ffi.Pointer<uintptr_t> ___security_cookie =
+      _lookup<uintptr_t>('__security_cookie');
+
+  int get __security_cookie => ___security_cookie.value;
+
+  set __security_cookie(int value) => ___security_cookie.value = value;
+
+  void _invalid_parameter_noinfo() {
+    return __invalid_parameter_noinfo();
+  }
+
+  late final __invalid_parameter_noinfoPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+          '_invalid_parameter_noinfo');
+  late final __invalid_parameter_noinfo =
+      __invalid_parameter_noinfoPtr.asFunction<void Function()>();
+
+  void _invalid_parameter_noinfo_noreturn() {
+    return __invalid_parameter_noinfo_noreturn();
+  }
+
+  late final __invalid_parameter_noinfo_noreturnPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+          '_invalid_parameter_noinfo_noreturn');
+  late final __invalid_parameter_noinfo_noreturn =
+      __invalid_parameter_noinfo_noreturnPtr.asFunction<void Function()>();
+
+  void _invoke_watson(
+    ffi.Pointer<wchar_t> _Expression,
+    ffi.Pointer<wchar_t> _FunctionName,
+    ffi.Pointer<wchar_t> _FileName,
+    int _LineNo,
+    int _Reserved,
+  ) {
+    return __invoke_watson(
+      _Expression,
+      _FunctionName,
+      _FileName,
+      _LineNo,
+      _Reserved,
+    );
+  }
+
+  late final __invoke_watsonPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+              ffi.Pointer<wchar_t>, ffi.Uint32, uintptr_t)>>('_invoke_watson');
+  late final __invoke_watson = __invoke_watsonPtr.asFunction<
+      void Function(ffi.Pointer<wchar_t>, ffi.Pointer<wchar_t>,
+          ffi.Pointer<wchar_t>, int, int)>();
+
+  ffi.Pointer<ffi.Int32> _errno() {
+    return __errno();
+  }
+
+  late final __errnoPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Int32> Function()>>('_errno');
+  late final __errno =
+      __errnoPtr.asFunction<ffi.Pointer<ffi.Int32> Function()>();
+
+  int _set_errno(
+    int _Value,
+  ) {
+    return __set_errno(
+      _Value,
+    );
+  }
+
+  late final __set_errnoPtr =
+      _lookup<ffi.NativeFunction<errno_t Function(ffi.Int32)>>('_set_errno');
+  late final __set_errno = __set_errnoPtr.asFunction<int Function(int)>();
+
+  int _get_errno(
+    ffi.Pointer<ffi.Int32> _Value,
+  ) {
+    return __get_errno(
+      _Value,
+    );
+  }
+
+  late final __get_errnoPtr =
+      _lookup<ffi.NativeFunction<errno_t Function(ffi.Pointer<ffi.Int32>)>>(
+          '_get_errno');
+  late final __get_errno =
+      __get_errnoPtr.asFunction<int Function(ffi.Pointer<ffi.Int32>)>();
+
+  int __threadid() {
+    return ___threadid();
+  }
+
+  late final ___threadidPtr =
+      _lookup<ffi.NativeFunction<ffi.Uint64 Function()>>('__threadid');
+  late final ___threadid = ___threadidPtr.asFunction<int Function()>();
+
+  int __threadhandle() {
+    return ___threadhandle();
+  }
+
+  late final ___threadhandlePtr =
+      _lookup<ffi.NativeFunction<uintptr_t Function()>>('__threadhandle');
+  late final ___threadhandle = ___threadhandlePtr.asFunction<int Function()>();
+
+  int ErrorPanic() {
+    return _ErrorPanic();
+  }
+
+  late final _ErrorPanicPtr =
+      _lookup<ffi.NativeFunction<GoInt32 Function()>>('ErrorPanic');
+  late final _ErrorPanic = _ErrorPanicPtr.asFunction<int Function()>();
 }
 
 abstract class ISA_AVAILABILITY {
@@ -227,6 +389,62 @@ class __crt_locale_pointers extends ffi.Struct {
 class __crt_locale_data extends ffi.Opaque {}
 
 class __crt_multibyte_data extends ffi.Opaque {}
+
+typedef va_list = ffi.Pointer<ffi.Int8>;
+typedef uintptr_t = ffi.Uint64;
+typedef wchar_t = ffi.Uint16;
+
+class __crt_locale_data_public extends ffi.Struct {
+  external ffi.Pointer<ffi.Uint16> _locale_pctype;
+
+  @ffi.Int32()
+  external int _locale_mb_cur_max;
+
+  @ffi.Uint32()
+  external int _locale_lc_codepage;
+}
+
+class _Mbstatet extends ffi.Struct {
+  @ffi.Uint64()
+  external int _Wchar;
+
+  @ffi.Uint16()
+  external int _Byte;
+
+  @ffi.Uint16()
+  external int _State;
+}
+
+typedef errno_t = ffi.Int32;
+
+class _GoString_ extends ffi.Struct {
+  external ffi.Pointer<ffi.Int8> p;
+
+  @ptrdiff_t()
+  external int n;
+}
+
+typedef ptrdiff_t = ffi.Int64;
+
+class GoInterface extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> t;
+
+  external ffi.Pointer<ffi.Void> v;
+}
+
+class GoSlice extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> data;
+
+  @GoInt()
+  external int len;
+
+  @GoInt()
+  external int cap;
+}
+
+typedef GoInt = GoInt64;
+typedef GoInt64 = ffi.Int64;
+typedef GoInt32 = ffi.Int32;
 
 const int _STL_COMPILER_PREPROCESSOR = 1;
 
@@ -1642,3 +1860,5 @@ const int _M_TIME = 16;
 const int _M_MESSAGES = 32;
 
 const int _M_ALL = 63;
+
+const int _WCHAR_T_DEFINED = 1;

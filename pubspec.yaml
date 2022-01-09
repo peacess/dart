@@ -17,6 +17,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test:
   flutter_lints: ^1.0.0
   ffigen: ^4.1.2
 
@@ -27,7 +28,8 @@ ffigen:
     - 'C:\lang\LLVM'
   name: rust_panic
   description:
-  output: './test/dart/error_lib/rust_panic.dart'
+  output: './test/dart/error_lib/panic_.dart'
   headers:
     entry-points:
       - './test/dart/error_lib/rust_panic/src/rust_panic.hpp'
+      - './test/dart/error_lib/go_panic/go_panic.h'

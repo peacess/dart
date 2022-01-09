@@ -44,3 +44,4 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/lib/error_lib/go_panic/go_panic.dll
