@@ -3,7 +3,7 @@ name: _
 description: _
 publish_to: _
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.6.1
 workspace:
   - dart
   - packages/grpc_ex
