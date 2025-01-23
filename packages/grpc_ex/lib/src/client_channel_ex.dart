@@ -7,7 +7,7 @@ typedef ClientChannelParams = ({String host, int port, ChannelOptions options});
 
 class ClientChannelEx extends ClientChannelBaseEx {
   List<ClientChannelParams> _params;
-  int currentIndex = 0;
+  int _currentIndex = 0;
   ClientChannelEx(this._params, {super.channelShutdownHandler});
 
   @override
@@ -17,16 +17,23 @@ class ClientChannelEx extends ClientChannelBaseEx {
   }
 
   ClientChannelParams nextClientChannelParams() {
-    if (currentIndex >= _params.length) {
-      currentIndex = 0;
+    if (_currentIndex >= _params.length) {
+      _currentIndex = 0;
     }
-    var p = _params[currentIndex];
-    currentIndex++;
+    var p = _params[_currentIndex];
+    _currentIndex++;
     return p;
+  }
+
+  ClientChannelParams currentClientChannelParams() {
+    if (_currentIndex >= _params.length) {
+      _currentIndex = 0;
+    }
+    return _params[_currentIndex];
   }
 
   void setClientChannelParams(List<ClientChannelParams> params) {
     _params = params;
-    currentIndex = 0;
+    _currentIndex = 0;
   }
 }
