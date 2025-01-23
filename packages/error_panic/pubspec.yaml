@@ -1,0 +1,19 @@
+name: error_panic
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+
+environment:
+  sdk: ^3.6.1
+resolution: workspace
+
+dependencies:
+  ffigen: ^16.1.0
+
+ffigen:
+  name: lang_panic
+  description: generate panic_
+  output: './lib/src/error_lib/panic_.dart'
+  headers:
+    entry-points:
+      - './lang/rust_panic/src/rust_panic.hpp'
+      - './lang/go_panic/go_panic.h'

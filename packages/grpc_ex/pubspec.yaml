@@ -1,0 +1,11 @@
+name: grpc_ex
+description: grpc extension
+version: 1.0.0
+
+environment:
+  sdk: ^3.6.1
+resolution: workspace
+
+dependencies:
+
+

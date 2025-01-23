@@ -1,0 +1,8 @@
+
+.dart_tool/
+
+pubspec.lock
+
+android/app/debug
+android/app/profile
+android/app/release
