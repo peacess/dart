@@ -1,8 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
 library;
 
-export 'src/grpc_ex_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/client_channel_base_ex.dart';
+export 'src/client_channel_ex.dart';

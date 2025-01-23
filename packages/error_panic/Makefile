@@ -9,6 +9,7 @@ else
 	$(error Unknown operating system. Please update the Makefile.)
 endif
 GO := $(shell which go)
+
 gen:
 	cd lang/go_panic && ${GO} build -o ${NAME} -buildmode=c-shared
 	cd lang/rust_panic && cargo build
