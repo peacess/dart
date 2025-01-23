@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:grpc/grpc.dart';
-import 'package:grpc/grpc_connection_interface.dart';
-import 'package:grpc/src/shared/profiler.dart';
-import 'package:grpc/src/client/channel.dart' as $channel;
+import 'package:grpc/grpc.dart' hide ClientChannel;
+import 'package:grpc/grpc_connection_interface.dart' hide ClientChannel;
+import 'package:grpc/src/shared/profiler.dart' show clientTimelineFilterKey;
+import 'package:grpc/src/client/channel.dart' show ClientChannel;
 
 // see: grpc-4.0.1/lib/src/client/channel.dart ClientChannelBase
-abstract class ClientChannelBaseEx implements $channel.ClientChannel {
+abstract class ClientChannelBaseEx implements ClientChannel {
   // TODO(jakobr): Multiple connections, load balancing.
   late ClientConnection _connection;
   var _connected = false;
