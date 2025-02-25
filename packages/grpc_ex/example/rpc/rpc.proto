@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Res {
+    string name = 1;
+}
+message Req {
+}
+service Sample {
+    rpc name(Req) returns (Res);
+}
