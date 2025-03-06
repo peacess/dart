@@ -18,7 +18,7 @@ void main() async {
   try {
     await client.name(Req()); //if the grpc request error, the channel will change to the next
   } catch (e) {
-    //
+    print(e);
   }
   {
     // show current channel
@@ -29,6 +29,12 @@ void main() async {
     await client.name(Req());
   } catch (e) {
     //
+  }
+
+  {
+    // show current channel
+    var temp = channel.currentClientChannelParams();
+    print("server ip-port: ${temp.host}-${temp.port}"); // 6688, the second
   }
 
   // ......

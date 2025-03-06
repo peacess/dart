@@ -60,7 +60,7 @@ abstract class ClientChannelBaseEx implements ClientChannel {
 
   @override
   ClientCall<Q, R> createCall<Q, R>(ClientMethod<Q, R> method, Stream<Q> requests, CallOptions options) {
-    final call = ClientCall(method, requests, options, isTimelineLoggingEnabled ? TimelineTask(filterKey: clientTimelineFilterKey) : null);
+    final call = _ClientCall(_onConnectionError, method, requests, options, isTimelineLoggingEnabled ? TimelineTask(filterKey: clientTimelineFilterKey) : null);
     getConnection().then((connection) {
       if (call.isCancelled) return;
       connection.dispatchCall(call);
@@ -78,4 +78,16 @@ abstract class ClientChannelBaseEx implements ClientChannel {
 
   @override
   Stream<ConnectionState> get onConnectionStateChanged => _connectionStateStreamController.stream;
+}
+
+typedef _ErrorCall = void Function(dynamic);
+
+class _ClientCall<Q, R> extends ClientCall<Q, R> {
+  _ErrorCall _errCall;
+  _ClientCall(this._errCall, super.method, super.requests, super.options, super._requestTimeline);
+  @override
+  void onConnectionError(error) {
+    super.onConnectionError(error);
+    _errCall(error);
+  }
 }
