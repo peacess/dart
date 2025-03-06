@@ -2,6 +2,7 @@
 name: _
 description: _
 publish_to: _
+version: 1.0.1
 environment:
   sdk: ^3.6.1
 workspace:

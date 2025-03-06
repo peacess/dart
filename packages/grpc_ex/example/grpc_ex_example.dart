@@ -23,7 +23,7 @@ void main() async {
   {
     // show current channel
     var temp = channel.currentClientChannelParams();
-    print("server ip-port: ${temp.host}-${temp.port}"); // 6688, the second
+    print("server ip-port: ${temp.host}-${temp.port}"); // 6666, the second
   }
   try {
     await client.name(Req());
