@@ -10,6 +10,6 @@ extern "C" {
 
 int32_t ErrorPanic();
 
-} // extern "C"
+}  // extern "C"
 
-} // namespace ffi
+}  // namespace ffi

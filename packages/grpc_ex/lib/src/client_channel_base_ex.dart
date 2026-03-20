@@ -61,13 +61,16 @@ abstract class ClientChannelBaseEx implements ClientChannel {
   @override
   ClientCall<Q, R> createCall<Q, R>(ClientMethod<Q, R> method, Stream<Q> requests, CallOptions options) {
     final call = _ClientCall(_onConnectionError, method, requests, options, isTimelineLoggingEnabled ? TimelineTask(filterKey: clientTimelineFilterKey) : null);
-    getConnection().then((connection) {
-      if (call.isCancelled) return;
-      connection.dispatchCall(call);
-    }, onError: (error) {
-      _onConnectionError(error);
-      call.onConnectionError(error);
-    });
+    getConnection().then(
+      (connection) {
+        if (call.isCancelled) return;
+        connection.dispatchCall(call);
+      },
+      onError: (error) {
+        _onConnectionError(error);
+        call.onConnectionError(error);
+      },
+    );
     return call;
   }
 

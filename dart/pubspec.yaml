@@ -1,12 +1,12 @@
 name: dart
 description: study dart and flutter
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.11.3
 
 resolution: workspace
 
